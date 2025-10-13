@@ -4,7 +4,7 @@
 **NIT Calicut, 2024-25**
 
 **Authors:** Arun Natarajan, Hafeez Muhammed  
-**Advisor:** Vinod Pathari
+**Advisor:** Dr. Vinod Pathari
 
 ## Overview
 

@@ -41,6 +41,25 @@ Verify the installation:
 proverif --help
 ```
 
+#### Running Case Studies
+
+Inside the container, navigate to the case studies directory and run a specific model. For example:
+
+```
+cd ~/Proverif-Case-Studies/boundedAssoc
+make ike_s=1 m4="-D noFlat -D noCol"
+```
+
+## Repository Structure
+
+```
+├── Docker/                 # Docker build files
+├── Proverif-Case-Studies/  # Original case studies from the paper
+├── proverif-compfun/       # Modified ProVerif source code
+├── diff-check/             # Analysis of source code changes
+└── README.md
+```
+
 ## Resources
 
 - **Docker Image:** [arunnats2004/proverif-compfun](https://hub.docker.com/repository/docker/arunnats2004/proverif-compfun/general)

@@ -44,3 +44,8 @@ out/
 *.pvl.pvl
 *.pv.pv
 /proverif-compfun
+
+/diff-check/proverif-compfun
+/diff-check/proverif2.03
+proverif_substantive_changes.patch
+proverif_full_changes.patch

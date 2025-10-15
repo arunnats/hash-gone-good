@@ -63,6 +63,7 @@ make ike_s=1 m4="-D noFlat -D noCol"
 ## Resources
 
 - **Docker Image:** [arunnats2004/proverif-compfun](https://hub.docker.com/repository/docker/arunnats2004/proverif-compfun/general)
+- **DeepWiki:** [deepwiki.com/arunnats/proverif-compfun/](https://deepwiki.com/arunnats/proverif-compfun/)
 - **Original Paper:** [Hash Gone Bad (USENIX Security'23)](https://www.usenix.org/conference/usenixsecurity23/presentation/cheval)
 - **Original Repository:** [charlie-j/symbolic-hash-models](https://github.com/charlie-j/symbolic-hash-models)
 - **ProVerif Documentation:** [bblanche.gitlabpages.inria.fr/proverif](https://bblanche.gitlabpages.inria.fr/proverif/)

@@ -1,0 +1,1040 @@
+
+%% bare_jrnl.tex
+%% V1.4b
+%% 2015/08/26
+%% by Michael Shell
+%% see http://www.michaelshell.org/
+%% for current contact information.
+%%
+%% This is a skeleton file demonstrating the use of IEEEtran.cls
+%% (requires IEEEtran.cls version 1.8b or later) with an IEEE
+%% journal paper.
+%%
+%% Support sites:
+%% http://www.michaelshell.org/tex/ieeetran/
+%% http://www.ctan.org/pkg/ieeetran
+%% and
+%% http://www.ieee.org/
+
+%%*************************************************************************
+%% Legal Notice:
+%% This code is offered as-is without any warranty either expressed or
+%% implied; without even the implied warranty of MERCHANTABILITY or
+%% FITNESS FOR A PARTICULAR PURPOSE! 
+%% User assumes all risk.
+%% In no event shall the IEEE or any contributor to this code be liable for
+%% any damages or losses, including, but not limited to, incidental,
+%% consequential, or any other damages, resulting from the use or misuse
+%% of any information contained here.
+%%
+%% All comments are the opinions of their respective authors and are not
+%% necessarily endorsed by the IEEE.
+%%
+%% This work is distributed under the LaTeX Project Public License (LPPL)
+%% ( http://www.latex-project.org/ ) version 1.3, and may be freely used,
+%% distributed and modified. A copy of the LPPL, version 1.3, is included
+%% in the base LaTeX documentation of all distributions of LaTeX released
+%% 2003/12/01 or later.
+%% Retain all contribution notices and credits.
+%% ** Modified files should be clearly indicated as such, including  **
+%% ** renaming them and changing author support contact information. **
+%%*************************************************************************
+
+
+% *** Authors should verify (and, if needed, correct) their LaTeX system  ***
+% *** with the testflow diagnostic prior to trusting their LaTeX platform ***
+% *** with production work. The IEEE's font choices and paper sizes can   ***
+% *** trigger bugs that do not appear when using other class files.       ***                          ***
+% The testflow support page is at:
+% http://www.michaelshell.org/tex/testflow/
+
+
+
+\documentclass[journal]{IEEEtran}
+\usepackage{url}
+%
+% If IEEEtran.cls has not been installed into the LaTeX system files,
+% manually specify the path to it like:
+% \documentclass[journal]{../sty/IEEEtran}
+
+
+
+
+
+% Some very useful LaTeX packages include:
+% (uncomment the ones you want to load)
+
+
+% *** MISC UTILITY PACKAGES ***
+%
+%\usepackage{ifpdf}
+% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
+% compilation based on whether the output is pdf or dvi.
+% usage:
+% \ifpdf
+%   % pdf code
+% \else
+%   % dvi code
+% \fi
+% The latest version of ifpdf.sty can be obtained from:
+% http://www.ctan.org/pkg/ifpdf
+% Also, note that IEEEtran.cls V1.7 and later provides a builtin
+% \ifCLASSINFOpdf conditional that works the same way.
+% When switching from latex to pdflatex and vice-versa, the compiler may
+% have to be run twice to clear warning/error messages.
+
+
+
+
+
+
+% *** CITATION PACKAGES ***
+%
+\usepackage{cite}
+% cite.sty was written by Donald Arseneau
+% V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
+% \cite{} output to follow that of the IEEE. Loading the cite package will
+% result in citation numbers being automatically sorted and properly
+% "compressed/ranged". e.g., [1], [9], [2], [7], [5], [6] without using
+% cite.sty will become [1], [2], [5]--[7], [9] using cite.sty. cite.sty's
+% \cite will automatically add leading space, if needed. Use cite.sty's
+% noadjust option (cite.sty V3.8 and later) if you want to turn this off
+% such as if a citation ever needs to be enclosed in parenthesis.
+% cite.sty is already installed on most LaTeX systems. Be sure and use
+% version 5.0 (2009-03-20) and later if using hyperref.sty.
+% The latest version can be obtained at:
+% http://www.ctan.org/pkg/cite
+% The documentation is contained in the cite.sty file itself.
+
+
+
+
+
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\ifCLASSINFOpdf
+  % \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+% graphicx was written by David Carlisle and Sebastian Rahtz. It is
+% required if you want graphics, photos, etc. graphicx.sty is already
+% installed on most LaTeX systems. The latest version and documentation
+% can be obtained at: 
+% http://www.ctan.org/pkg/graphicx
+% Another good source of documentation is "Using Imported Graphics in
+% LaTeX2e" by Keith Reckdahl which can be found at:
+% http://www.ctan.org/pkg/epslatex
+%
+% latex, and pdflatex in dvi mode, support graphics in encapsulated
+% postscript (.eps) format. pdflatex in pdf mode supports graphics
+% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
+% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
+% not a bitmapped formats (.jpeg, .png). The IEEE frowns on bitmapped formats
+% which can result in "jaggedy"/blurry rendering of lines and letters as
+% well as large increases in file sizes.
+%
+% You can find documentation about the pdfTeX application at:
+% http://www.tug.org/applications/pdftex
+
+
+
+
+
+% *** MATH PACKAGES ***
+%
+%\usepackage{amsmath}
+% A popular package from the American Mathematical Society that provides
+% many useful and powerful commands for dealing with mathematics.
+%
+% Note that the amsmath package sets \interdisplaylinepenalty to 10000
+% thus preventing page breaks from occurring within multiline equations. Use:
+%\interdisplaylinepenalty=2500
+% after loading amsmath to restore such page breaks as IEEEtran.cls normally
+% does. amsmath.sty is already installed on most LaTeX systems. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/pkg/amsmath
+
+
+
+
+
+% *** SPECIALIZED LIST PACKAGES ***
+%
+%\usepackage{algorithmic}
+% algorithmic.sty was written by Peter Williams and Rogerio Brito.
+% This package provides an algorithmic environment fo describing algorithms.
+% You can use the algorithmic environment in-text or within a figure
+% environment to provide for a floating algorithm. Do NOT use the algorithm
+% floating environment provided by algorithm.sty (by the same authors) or
+% algorithm2e.sty (by Christophe Fiorio) as the IEEE does not use dedicated
+% algorithm float types and packages that provide these will not provide
+% correct IEEE style captions. The latest version and documentation of
+% algorithmic.sty can be obtained at:
+% http://www.ctan.org/pkg/algorithms
+% Also of interest may be the (relatively newer and more customizable)
+% algorithmicx.sty package by Szasz Janos:
+% http://www.ctan.org/pkg/algorithmicx
+
+
+
+
+% *** ALIGNMENT PACKAGES ***
+%
+%\usepackage{array}
+% Frank Mittelbach's and David Carlisle's array.sty patches and improves
+% the standard LaTeX2e array and tabular environments to provide better
+% appearance and additional user controls. As the default LaTeX2e table
+% generation code is lacking to the point of almost being broken with
+% respect to the quality of the end results, all users are strongly
+% advised to use an enhanced (at the very least that provided by array.sty)
+% set of table tools. array.sty is already installed on most systems. The
+% latest version and documentation can be obtained at:
+% http://www.ctan.org/pkg/array
+
+
+% IEEEtran contains the IEEEeqnarray family of commands that can be used to
+% generate multiline equations as well as matrices, tables, etc., of high
+% quality.
+
+
+
+
+% *** SUBFIGURE PACKAGES ***
+%\ifCLASSOPTIONcompsoc
+%  \usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
+%\else
+%  \usepackage[caption=false,font=footnotesize]{subfig}
+%\fi
+% subfig.sty, written by Steven Douglas Cochran, is the modern replacement
+% for subfigure.sty, the latter of which is no longer maintained and is
+% incompatible with some LaTeX packages including fixltx2e. However,
+% subfig.sty requires and automatically loads Axel Sommerfeldt's caption.sty
+% which will override IEEEtran.cls' handling of captions and this will result
+% in non-IEEE style figure/table captions. To prevent this problem, be sure
+% and invoke subfig.sty's "caption=false" package option (available since
+% subfig.sty version 1.3, 2005/06/28) as this is will preserve IEEEtran.cls
+% handling of captions.
+% Note that the Computer Society format requires a larger sans serif font
+% than the serif footnote size font used in traditional IEEE formatting
+% and thus the need to invoke different subfig.sty package options depending
+% on whether compsoc mode has been enabled.
+%
+% The latest version and documentation of subfig.sty can be obtained at:
+% http://www.ctan.org/pkg/subfig
+
+
+
+
+% *** FLOAT PACKAGES ***
+%
+%\usepackage{fixltx2e}
+% fixltx2e, the successor to the earlier fix2col.sty, was written by
+% Frank Mittelbach and David Carlisle. This package corrects a few problems
+% in the LaTeX2e kernel, the most notable of which is that in current
+% LaTeX2e releases, the ordering of single and double column floats is not
+% guaranteed to be preserved. Thus, an unpatched LaTeX2e can allow a
+% single column figure to be placed prior to an earlier double column
+% figure.
+% Be aware that LaTeX2e kernels dated 2015 and later have fixltx2e.sty's
+% corrections already built into the system in which case a warning will
+% be issued if an attempt is made to load fixltx2e.sty as it is no longer
+% needed.
+% The latest version and documentation can be found at:
+% http://www.ctan.org/pkg/fixltx2e
+
+
+%\usepackage{stfloats}
+% stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
+% the ability to do double column floats at the bottom of the page as well
+% as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
+% LaTeX2e). It also provides a command:
+%\fnbelowfloat
+% to enable the placement of footnotes below bottom floats (the standard
+% LaTeX2e kernel puts them above bottom floats). This is an invasive package
+% which rewrites many portions of the LaTeX2e float routines. It may not work
+% with other packages that modify the LaTeX2e float routines. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/pkg/stfloats
+% Do not use the stfloats baselinefloat ability as the IEEE does not allow
+% \baselineskip to stretch. Authors submitting work to the IEEE should note
+% that the IEEE rarely uses double column equations and that authors should try
+% to avoid such use. Do not be tempted to use the cuted.sty or midfloat.sty
+% packages (also by Sigitas Tolusis) as the IEEE does not format its papers in
+% such ways.
+% Do not attempt to use stfloats with fixltx2e as they are incompatible.
+% Instead, use Morten Hogholm'a dblfloatfix which combines the features
+% of both fixltx2e and stfloats:
+%
+% \usepackage{dblfloatfix}
+% The latest version can be found at:
+% http://www.ctan.org/pkg/dblfloatfix
+
+
+
+
+%\ifCLASSOPTIONcaptionsoff
+%  \usepackage[nomarkers]{endfloat}
+% \let\MYoriglatexcaption\caption
+% \renewcommand{\caption}[2][\relax]{\MYoriglatexcaption[#2]{#2}}
+%\fi
+% endfloat.sty was written by James Darrell McCauley, Jeff Goldberg and 
+% Axel Sommerfeldt. This package may be useful when used in conjunction with 
+% IEEEtran.cls'  captionsoff option. Some IEEE journals/societies require that
+% submissions have lists of figures/tables at the end of the paper and that
+% figures/tables without any captions are placed on a page by themselves at
+% the end of the document. If needed, the draftcls IEEEtran class option or
+% \CLASSINPUTbaselinestretch interface can be used to increase the line
+% spacing as well. Be sure and use the nomarkers option of endfloat to
+% prevent endfloat from "marking" where the figures would have been placed
+% in the text. The two hack lines of code above are a slight modification of
+% that suggested by in the endfloat docs (section 8.4.1) to ensure that
+% the full captions always appear in the list of figures/tables - even if
+% the user used the short optional argument of \caption[]{}.
+% IEEE papers do not typically make use of \caption[]'s optional argument,
+% so this should not be an issue. A similar trick can be used to disable
+% captions of packages such as subfig.sty that lack options to turn off
+% the subcaptions:
+% For subfig.sty:
+% \let\MYorigsubfloat\subfloat
+% \renewcommand{\subfloat}[2][\relax]{\MYorigsubfloat[]{#2}}
+% However, the above trick will not work if both optional arguments of
+% the \subfloat command are used. Furthermore, there needs to be a
+% description of each subfigure *somewhere* and endfloat does not add
+% subfigure captions to its list of figures. Thus, the best approach is to
+% avoid the use of subfigure captions (many IEEE journals avoid them anyway)
+% and instead reference/explain all the subfigures within the main caption.
+% The latest version of endfloat.sty and its documentation can obtained at:
+% http://www.ctan.org/pkg/endfloat
+%
+% The IEEEtran \ifCLASSOPTIONcaptionsoff conditional can also be used
+% later in the document, say, to conditionally put the References on a 
+% page by themselves.
+
+
+
+
+% *** PDF, URL AND HYPERLINK PACKAGES ***
+%
+%\usepackage{url}
+% url.sty was written by Donald Arseneau. It provides better support for
+% handling and breaking URLs. url.sty is already installed on most LaTeX
+% systems. The latest version and documentation can be obtained at:
+% http://www.ctan.org/pkg/url
+% Basically, \url{my_url_here}.
+
+
+
+
+% *** Do not adjust lengths that control margins, column widths, etc. ***
+% *** Do not use packages that alter fonts (such as pslatex).         ***
+% There should be no need to do such things with IEEEtran.cls V1.6 and later.
+% (Unless specifically asked to do so by the journal or conference you plan
+% to submit to, of course. )
+% --- PASTE THIS IN YOUR PREAMBLE ---
+
+% --- MODERN CODE FORMATTING SETUP (UPDATED) ---
+\usepackage{inconsolata} 
+\usepackage[most]{tcolorbox}
+\usepackage{xcolor}
+\usepackage{listings}
+
+% 1. Define Colors (Lighter & Cleaner)
+\definecolor{codebg}{rgb}{1,1,1}       % Changed to Pure White
+\definecolor{framecolor}{rgb}{0.95,0.95,0.95} % Very light grey for the header
+\definecolor{keywordblue}{rgb}{0.13,0.13,1}
+\definecolor{typegreen}{rgb}{0,0.6,0}
+\definecolor{commentgray}{rgb}{0.5,0.5,0.5}
+
+% 2. Define ProVerif Language
+\lstdefinelanguage{ProVerif}{
+  keywords={let, in, out, if, then, else, new, event, fun, type, query, reduction, process, letfun, equation, not},
+  keywordstyle=\color{keywordblue}\bfseries,
+  ndkeywords={bitstring, t_sk, t_pk, t_exponent, G, t_key},
+  ndkeywordstyle=\color{typegreen}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{(*}{*)},
+  commentstyle=\color{commentgray}\ttfamily,
+  stringstyle=\color{purple}\ttfamily,
+}
+
+% 3. Create the "proverifcode" Environment (No Numbers, Lighter)
+\newtcblisting[auto counter]{proverifcode}[2][]{
+    enhanced,
+    listing only,
+    listing engine=listings,
+    listing options={
+        language=ProVerif,
+        basicstyle=\ttfamily\scriptsize, 
+        breaklines=true,
+        % --- Line numbers removed here ---
+        tabsize=2,
+    },
+    title={#2}, 
+    colback=codebg,     % Uses the new white background
+    colframe=framecolor, % Uses the new light grey frame
+    coltitle=black, 
+    sharp corners, 
+    boxrule=0.5pt,      % Keeps a thin border for definition
+    left=2mm, right=2mm, top=2mm, bottom=2mm, 
+    #1
+}
+% ---------------------------------------------
+
+% correct bad hyphenation here
+\hyphenation{Project Title}
+
+
+\begin{document}
+%
+% paper title
+% Titles are generally capitalized except for words such as a, an, and, as,
+% at, but, by, for, in, nor, of, on, or, the, to and up, which are usually
+% not capitalized unless they are the first or last word of the title.
+% Linebreaks \\ can be used within to get better formatting as desired.
+% Do not put math or special symbols in the title.
+\title{Fast and Furi-hash: An A-Unification–Enhanced Framework for Automated Discovery of Hash-Based Protocol Attacks}
+%
+%
+% author names and IEEE memberships
+% note positions of commas and nonbreaking spaces ( ~ ) LaTeX will not break
+% a structure at a ~ so this keeps an author's name from being broken across
+% two lines.
+% use \thanks{} to gain access to the first footnote area
+% a separate \thanks must be used for each paragraph as LaTeX2e's \thanks
+% was not built to handle multiple paragraphs
+%
+
+\author{Hafeez Muhammed
+        and~Arun Natarajan% <-this % stops a space
+}
+
+% note the % following the last \IEEEmembership and also \thanks - 
+% these prevent an unwanted space from occurring between the last author name
+% and the end of the author line. i.e., if you had this:
+% 
+% \author{....lastname \thanks{...} \thanks{...} }
+%                     ^------------^------------^----Do not want these spaces!
+%
+% a space would be appended to the last name and could cause every name on that
+% line to be shifted left slightly. This is one of those "LaTeX things". For
+% instance, "\textbf{A} \textbf{B}" will typeset as "A B" not "AB". To get
+% "AB" then you have to do: "\textbf{A}\textbf{B}"
+% \thanks is no different in this regard, so shield the last } of each \thanks
+% that ends a line with a % and do not let a space in before the next \thanks.
+% Spaces after \IEEEmembership other than the last one are OK (and needed) as
+% you are supposed to have spaces between the names. For what it is worth,
+% this is a minor point as most people would not even notice if the said evil
+% space somehow managed to creep in.
+
+
+
+% The paper headers
+\markboth{B.Tech CSE Semester 7 Final Evaluation Report}%
+{}
+% The only time the second header will appear is for the odd numbered pages
+% after the title page when using the twoside option.
+% 
+% *** Note that you probably will NOT want to include the author's ***
+% *** name in the headers of peer review papers.                   ***
+% You can use \ifCLASSOPTIONpeerreview for conditional compilation here if
+% you desire.
+
+
+
+
+% If you want to put a publisher's ID mark on the page you can do it like
+% this:
+%\IEEEpubid{0000--0000/00\$00.00~\copyright~2015 IEEE}
+% Remember, if you use this you must call \IEEEpubidadjcol in the second
+% column for its text to clear the IEEEpubid mark.
+
+
+
+% use for special paper notices
+%\IEEEspecialpapernotice{(Invited Paper)}
+
+
+
+
+% make the title area
+\maketitle
+
+% As a general rule, do not put math, special symbols or citations
+% in the abstract or keywords.
+\begin{abstract}
+Building upon the foundational work of Cheval et al.\ in \textit{Hash Gone Bad: Automated discovery of protocol attacks that exploit hash function weaknesses} \cite{cheval2023hash}, this work focuses on the systematic analysis and exploitation of hash-function weaknesses in modern cryptographic protocols. Our goal is to extend the scope of automated discovery frameworks to more accurately model and reason about the real algebraic properties of practical hash constructions. Building on established methodologies for automated vulnerability analysis, we investigate how real-world weaknesses—such as collision susceptibility, length-extension behavior, and failures in preimage resistance—can undermine the security guarantees of widely deployed cryptographic systems. We study these imperfections in relation to modern protocol designs and identify structural patterns that enable practical exploitability. Through automated analysis and formal verification techniques, we aim to uncover previously unknown attack vectors in contemporary protocols and extend existing threat-model lattices to capture a broader class of hash-based behaviors. This work ultimately seeks to contribute toward a more complete and precise framework for analyzing hash-centric vulnerabilities in symbolic verification.
+\end{abstract}
+
+
+% Note that keywords are not normally used for peerreview papers.
+\begin{IEEEkeywords}
+ProVerif, Symbolic Verification, Hash Functions, AC-Unification, Protocol Analysis.
+\end{IEEEkeywords}
+
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+\IEEEpeerreviewmaketitle
+
+
+
+\section{Introduction}
+% The very first letter is a 2 line initial drop letter followed
+% by the rest of the first word in caps.
+% 
+% form to use if the first word consists of a single letter:
+% \IEEEPARstart{A}{demo} file is ....
+% 
+% form to use if you need the single drop letter followed by
+% normal text (unknown if ever used by the IEEE):
+% \IEEEPARstart{A}{}demo file is ....
+% 
+% Some journals put the first two words in caps:
+% \IEEEPARstart{T}{his demo} file is ....
+% 
+% Here we have the typical use of a "T" for an initial drop letter
+% and "HIS" in caps to complete the first word.
+\IEEEPARstart{T}{he} security of modern cryptographic protocols is critically dependent on the integrity of their underlying cryptographic primitives, particularly hash functions. Although formal verification has become an essential tool for identifying protocol flaws, many analysis techniques rely on an idealized abstraction of these primitives. The Random Oracle Model (ROM), for example, assumes a “perfect” hash function, free from structural properties such as iterative processing that characterize widely deployed algorithms such as MD5 and SHA-1. This creates a significant gap between a protocol’s proven security in an idealized model and its actual vulnerabilities to length-extension or collision attacks in real-world implementations.
+
+The foundational work in \textit{"Hash Gone Bad"} by Cheval et al. \cite{cheval2023hash} directly addressed this gap by extending ProVerif with recursive computation functions (`compfun`) to approximate the associative nature of Merkle-Damgård constructions. This solution relies on bounded approximations, i.e. manual axioms that limit the depth of hash analysis to prevent infinite recursion. As noted in our mid-term evaluation, this approach is fragile, as it creates a trade-off where increasing the bound improves completeness but triggers a combinatorial explosion in verification time, rendering complex collision scenarios computationally infeasible.
+
+In our initial investigation, we proposed the integration of the \textit{certified Associative-Commutative (AC) unification algorithm}\cite{ayala2024certified} of Ayala-Rincón et al.\ to address this limitation. However, a deeper algebraic analysis revealed a critical flaw in this hypothesis: cryptographic hash functions are inherently order-sensitive ($H(a,b) \neq H(b,a)$), making the assumption of commutativity unsound within this domain. As a result, this project pivots toward implementing \textit{Jaffar’s Algorithm for Minimal and Complete Word Unification} \cite{jaffar1990word}. 
+
+Unlike previous bounded models that rely on heuristic or ``blind'' guessing, Jaffar’s algorithm employs a principled mechanism known as \textit{directed splitting}, which allows ProVerif to reason over hash chains of arbitrary (unbounded) length. This avoids the state-space explosion and non-termination issues characteristic of naive recursive or approximation-based approaches, enabling sound and automated reasoning over associative hash constructions.
+
+This report details the successful implementation of this framework. Section II contains the literature study analysing different algorithms considered for this function. Section III analyzes the limitations of the existing “Hash Gone Bad” tool and the computational bottlenecks observed in collision benchmarks. Section IV details the planned integration of Jaffar’s logic into the ProVerif library, replacing manual bounds with directed axioms. Section V presents an evaluation plan, demonstrating how this method seeks to resolve the performance spikes observed in the IKE protocol, and Section VI concludes the report.
+
+\section{Literature Survey}
+
+To address the limitations of bounded associativity in ProVerif, we evaluated three distinct classes of unification algorithms. Our objective was to identify a method that is both \textbf{sound} (algebraically correct for hash functions) and \textbf{complete} (able to find all valid solutions without non-termination).
+
+\subsection{Associative-Commutative (AC) Unification}
+
+Initial research, including our mid-term hypothesis, focused on AC-unification frameworks as described in \textit{Certified First-Order AC-Unification and Applications} by Ayala-Rincón et al.~\cite{ayala2024certified}. AC-unification solves equations where operators satisfy both associativity ($H((a,b),c) = H(a,(b,c))$) and commutativity ($H(a,b) = H(b,a)$).
+
+\begin{itemize}
+    \item \textit{Mechanism:} Terms are abstracted into multisets, and the algorithm solves corresponding Linear Diophantine Equations to determine variable multiplicities.
+    \item \textit{Suitability:} Although computationally efficient, this model is \textbf{unsound} for cryptographic hash functions. Merkle–Damg{\aa}rd constructions are inherently order-sensitive and therefore treating them as commutative would incorrectly equate terms such as $H(\text{user}, \text{pass})$ and $H(\text{pass}, \text{user})$. Thus, this approach was rejected.
+\end{itemize}
+
+\subsection{Recursive Descent (Plotkin's Algorithm)}
+
+The work of outlined in \textit{Building-in Equational Theories} by G.~D.~Plotkin\cite{plotkin1972equational} on building-in equational theories provides a naive approach to strictly associative (word) unification. 
+
+\begin{itemize}
+    \item \textit{Mechanism:} The method recursively decomposes list structures by matching the ``head'' elements. When heads disagree, the algorithm nondeterministically splits the larger variable into a $(\text{head}, \text{tail})$ pair and recurses.
+    \item \textit{Suitability:} While algebraically sound, Plotkin's algorithm is \textbf{infinitary}. It produces infinitely many redundant unifiers (e.g., $x = a$, $x = (a,a)$, $x = (a,a,a)$, \dots) without a termination guarantee. Implementing this behavior in ProVerif would worsen the existing non-termination problems in current bounded association approach and would be outperformed.
+\end{itemize}
+
+\subsection{Minimal Complete Word Unification (Jaffar's Algorithm)}
+
+Jaffar\cite{jaffar1990word} in \textit{Minimal and Complete Word Unification} introduces a significant refinement to associative unification by computing minimal complete sets of unifiers.
+
+\begin{itemize}
+    \item \textit{Mechanism:} Instead of blind recursive splitting, Jaffar’s algorithm uses \textbf{directed splitting}. Given an equation $x \cdot u = y \cdot v$, the algorithm proves that solutions exist only if $x$ is a prefix of $y$ (or vice versa). The search space is restricted to three cases: equality, left-prefix overlap, and right-prefix overlap.
+    \item \textit{Suitability:} This approach is \textbf{optimal} for our use case. It enables ProVerif to reason about hash chains of arbitrary depth (completeness) while pruning invalid search branches (efficiency). It is \textbf{sound and correct} and thus can replace the manual recursion bounds used in the ``Hash Gone Bad'' framework with a mathematically rigorous termination logic.
+\end{itemize}
+
+\section{Tool Analysis: The ``Hash Gone Bad'' Extension}
+
+To implement a new unification engine, we first performed an extensive analysis of the existing modifications made by Cheval et al. to ProVerif\cite{cheval2023hash}\cite{orig_repo}. Our study focused on how the tool currently handles hash modeling, starting from the high-level protocol definition and moving to the internal library logic\cite{our_repo}.
+
+\subsection{Protocol Modeling Strategies}
+We compared two different modeling approaches for the Sigma protocol to understand the impact of the extension. The first represents the standard method using abstract predicates, while the second utilizes the authors' new recursive computation functions.
+
+\begin{proverifcode}{1. Predicate-based model (Standard)}
+let A(skA:t_sk, pkB:t_pk) =
+  (* ... Setup omitted ... *)
+  (* Manual nesting of the transcript *)
+  let transcript:bitstring = (exp(g,x),(infoA,(gy,infoB))) in
+  let ht:bitstring = buildH(transcript) in
+  out(c, (sign((ht,init), skA), mac(pk2bs(pk(skA)), k)));
+  in(c, (s:bitstring,m:bitstring));
+  if signCheck(s, pkB) && m = mac(pk2bs(pkB), k) then
+    let (ht':bitstring, =resp) = getmsg(s) in
+    (* Relies on abstract predicate to check equality *)
+    if eq_hash_pred(ht,ht') then
+      event acceptA(pk(skA),pkB,(m1,m2)).
+\end{proverifcode}
+
+\begin{proverifcode}{2. Bounded-associativity model (MDH Extension)}
+let A(skA:t_sk, pkB:t_pk) =
+  (* ... Setup omitted ... *)
+  (* Flexible structure for the transcript *)
+  let transcript:bitstring = (exp(g,x),infoA,gy,infoB) in
+  (* Calls the recursive normalization function *)
+  let ht:bitstring = MDH(transcript) in
+  out(c, (sign((ht,init), skA), mac(pk2bs(pk(skA)), k)));
+  in(c, (s:bitstring,m:bitstring));
+  (* Uses standard, inlined equality checks *)
+  if signCheck((ht,resp), s, pkB) && m = mac(pk2bs(pkB), k) then
+    event acceptA(pk(skA),pkB,(m1,m2)).
+\end{proverifcode}
+
+\textbf{Key Differences:}
+\begin{itemize}
+    \item \textbf{Structure:} The first model forces a rigid nested tuple structure. The second passes a flat list, relying on the tool to handle the structure.
+    \item \textbf{Equality Logic:} The first model relies on an external predicate \texttt{eq\_hash\_pred} to "tell" the tool that two hashes are equal. The second model calls \texttt{MDH(transcript)}, which mathematically transforms the term into a canonical form. Because the terms are normalized, standard equality checks (like those inside \texttt{signCheck}) work automatically.
+\end{itemize}
+
+\subsection{Analysis of the Computation Library}
+The core logic that powers the second model resides in the library file \texttt{hash\_no\_collision.pvl}. We analyzed the \texttt{MDH} function to understand how this normalization is achieved.
+
+\begin{proverifcode}{Recursive MDH Logic (hash\_no\_collision.pvl)}
+compfun MDH(bitstring):bitstring =
+  forall x:bitstring; MDH(x) if is_var(x) || x = Nil -> x
+  otherwise forall h1,h2,h3:bitstring; 
+    MDH(H(CPcol1(h1,h2),h3)) -> H(CPcol1(MDH(h1),MDH(h2)),MDH(h3))
+  otherwise forall x1,x2,h:bitstring; 
+    MDH(H((x1,x2),h)) -> MDH(H(x2,H(x1,h))) (* Associativity Rule *)
+  otherwise forall x,h:bitstring; 
+    MDH(H(x,h)) -> H(x,MDH(h))
+  [mayFail]
+.
+\end{proverifcode}
+
+The logic follows a ``flattening'' strategy implemented via recursive pattern matching:
+\begin{enumerate}
+    \item \textbf{Base Case:} If a term is a variable or \texttt{Nil}, return it as is.
+    \item \textbf{Recursive Step:} If the term matches the associative pattern \texttt{H( (x1, x2), h )}, the function recursively transforms it to \texttt{MDH( H(x2, H(x1, h)) )}.
+\end{enumerate}
+
+\subsection{Limitations of the Current Approach}
+
+While the \texttt{MDH} function successfully normalizes terms, its design relies on the \texttt{[mayFail]} tag and manually imposed recursion limits to prevent infinite unfolding during ProVerif's resolution phase. These artificial bounds are necessary because the recursive associativity rule can otherwise generate arbitrarily deep terms. As confirmed in our experiments, once a protocol requires reasoning beyond the preset depth, ProVerif returns a ``cannot be proved'' outcome. In effect, the bounded approach is neither complete nor robust enough for protocols with non-trivial hash-chain structures.
+
+\subsection{Empirical Analysis: The Cost of Bounded Associativity}
+
+To quantify the limitations of the current ``Hash Gone Bad'' framework, we conducted a benchmark analysis across three representative protocols: SIGMA, Simplified IKE, and Full IKE. Each protocol was tested under three configurations:
+
+\begin{enumerate}
+    \item \textbf{Baseline:} Standard ProVerif hashing (no associativity, no collisions).
+    \item \textbf{Associative:} Using the manual \texttt{MDH} function (associativity only).
+    \item \textbf{Collision-Enabled:} Using \texttt{MDH} with chosen-prefix collision axioms.
+\end{enumerate}
+
+We measured verification time and the resulting provability of security properties.
+
+\begin{table}[h!]
+\centering
+\caption{Verification Performance of the Bounded Model}
+\begin{tabular}{|l|l|c|l|}
+\hline
+\textbf{Protocol} & \textbf{Configuration} & \textbf{Time (s)} & \textbf{Result} \\ \hline
+\multirow{3}{*}{SIGMA} 
+ & Baseline          & 18.7  & Attack Found \\ \cline{2-4}
+ & Associative       & 27.8  & Attack Found \\ \cline{2-4}
+ & Assoc + Collision & 17.1  & Attack Found \\ \hline
+
+\multirow{3}{*}{Simplified IKE} 
+ & Baseline               & 6.4    & Secure \\ \cline{2-4}
+ & Associative            & 6.8    & Secure \\ \cline{2-4}
+ & \textbf{Assoc + Collision} & \textbf{189.8} & \textbf{Cannot be proved} \\ \hline
+
+\multirow{3}{*}{Full IKE} 
+ & Baseline               & 15.2   & Secure \\ \cline{2-4}
+ & Associative            & 22.0   & Secure \\ \cline{2-4}
+ & \textbf{Assoc + Collision} & \textbf{186.4} & \textbf{Cannot be proved} \\ \hline
+\end{tabular}
+\end{table}
+
+The benchmarks reveal two critical failure modes in the current bounded approach:
+
+\begin{enumerate}
+    \item \textit{Combinatorial Explosion (the ``Time Spike''):}  
+    Introducing associativity alone adds modest overhead (e.g., Full IKE increases from 15.2s to 22.0s).  
+    However, enabling collisions produces dramatic slowdowns: Simplified IKE jumps from \emph{6.8s to 189.8s}, nearly a \textbf{28× increase}.  
+    This spike stems from the manual axioms that blindly decompose variables (e.g., $x = (y,z)$), forcing the solver to explore an exponentially large space of invalid hash structures.
+
+    \item \textit{Incompleteness (the ``Cannot be Proved'' Outcome):}  
+    Under the collision model, both IKE variants fail to verify their authentication properties.  
+    This occurs because the necessary unification depth exceeds the manual bounds in \texttt{hash\_collision.pvl}.  
+    Once the recursion depth runs out, ProVerif simply aborts the reasoning process.
+\end{enumerate}
+
+\textbf{Conclusion.}  
+These results formally justify the move to \textbf{Jaffar’s Algorithm}.  
+The ``Time Spike'' is a symptom of unguided splitting; Jaffar’s \emph{Direct Splitting} restricts branching to only mathematically necessary cases.  
+The ``Cannot be proved'' failures arise from artificial depth limits; Jaffar’s algorithm is \textbf{complete}, guaranteeing termination without arbitrary bounds.
+
+\section{Proposed Solution: Implementing Jaffar's Algorithm}
+
+To address the limitations of the bounded model, we propose a new unification engine based on Joxan Jaffar’s algorithm for \textit{Minimal and Complete Word Unification}~\cite{jaffar1990word}. This approach replaces the manual, ``blind'' variable splitting of the original framework with a mathematically rigorous ``directed splitting'' strategy.
+
+\subsection{Theoretical Basis: Directed Splitting}
+The core problem in the ``Hash Gone Bad'' framework is the handling of equations like $H(x, h_1) = H(y, h_2)$, where $x$ and $y$ are variables. The original solution attempts to solve this by guessing that $x$ might be a pair $(y, z)$ or a triple $(y, z, w)$ up to a fixed depth. This ``blind splitting'' generates an exponentially large search tree.
+
+Jaffar’s algorithm proves that for any solvable word equation $x \cdot u = y \cdot v$ (where $x, y$ are variables and $u, v$ are words), the set of minimal unifiers is determined solely by the overlap between $x$ and $y$. We do not need to guess arbitrary structures.
+
+The algorithm defines a \textbf{Transformation Procedure} that reduces the equation to one of three minimal forms:
+
+\begin{enumerate}
+    \item \textbf{Match ($x = y$):} The variables are identical. The equation simplifies to solving $u = v$.
+    \item \textbf{Left Prefix ($y = x \cdot z$):} Variable $x$ is a prefix of $y$. We substitute $y$ with $x \cdot z$ and simplify the equation to $u = z \cdot v$.
+    \item \textbf{Right Prefix ($x = y \cdot z$):} Variable $y$ is a prefix of $x$. We substitute $x$ with $y \cdot z$ and simplify the equation to $z \cdot u = v$.
+\end{enumerate}
+
+\subsection{Algorithm Logic and Pseudocode}
+
+We adapted Jaffar’s ``Main Loop'' (Section 3 of~\cite{jaffar1990word}) for the specific context of Merkle-Damgård hashes. In our ProVerif implementation, the ``unification queue'' is handled natively by the engine’s resolution mechanism. We explicitly define the transformation steps as Horn Clause axioms.
+
+\begin{proverifcode}{Adapted Word Unification for Hashes}
+Input: Equation H(x, h1) = H(y, h2)
+Output: Set of unifiers {sigma}
+
+If x and y are identical:
+    Return { x -> x } AND unify(h1, h2)
+Else:
+    Attempt Split 1 (x is prefix):
+        Let y = (x, z) where z is a fresh variable
+        Return { y -> (x, z) } AND unify(h1, (z, h2))
+    Attempt Split 2 (y is prefix):
+        Let x = (y, z) where z is a fresh variable
+        Return { x -> (y, z) } AND unify((z, h1), h2)
+\end{proverifcode}
+
+\subsection{Implementation in ProVerif (.pvl)}
+
+We propose to integrate this logic into the \texttt{hash\_collision.pvl} library through one key modification: replacing the bounded variable generation axioms with a single, comprehensive axiom. This axiom implements the three cases of Jaffar’s logic, plus the specific case for our threat model (Chosen-Prefix Collisions).
+
+\begin{proverifcode}{Proposed ProVerif Axiom (hash\_collision.pvl)}
+axiom x1,x2,h1,h2,z,c1,c2,c3,c4:bitstring;
+  eq_hash_col(H(x1,h1),H(x2,h2)) 
+  && is_var(x1) && is_var(x2) 
+  && instantiate_allowed(x1,H(x2,h2)) 
+  ==> 
+  (* Case 1: Equality (x = y) *)
+  (x1 = x2 && eq_hash_col(h1, h2))
+  ||
+  (* Case 2: x1 is prefix of x2 (x2 = x1 . z) *)
+  (* We rewrite the tail: h1 must now match z . h2 *)
+  (x2 = (x1, z) && eq_hash_col(h1, H(z, h2)))
+  ||
+  (* Case 3: x2 is prefix of x1 (x1 = x2 . z) *)
+  (* We rewrite the tail: z . h1 must now match h2 *)
+  (x1 = (x2, z) && eq_hash_col(H(z, h1), h2))
+  ||
+  (* Case 4: Threat Model - Chosen-Prefix Collision *)
+  (* The variables align with the collision blocks *)
+  (x1 = CPcol1(c1,c2) && x2 = CPcol2(c3,c4) 
+   && eq_hash(c1,c3) && eq_hash(c2,c4))
+  [forcedRemove].
+\end{proverifcode}
+
+This axiom effectively acts as the ``decision procedure'' for the unification engine, forcing it to explore only the mathematically valid branches of the search tree.
+
+\section{Verification Plan \& Expected Results}
+
+We define a three-phased experimental framework focusing on \textbf{Correctness}, \textbf{Scalability}, and \textbf{Soundness} to validate that ``Fast and Furi-hash'' improves upon the existing bounded baseline.
+
+\subsection{Functional Correctness: Deep Chain Analysis}
+This test verifies the engine's \textbf{completeness}—its ability to find attacks requiring unification depth beyond standard manual bounds.
+
+\begin{itemize}
+    \item \textbf{Setup:} Define a synthetic protocol where a server authenticates using a hash pre-image of deep depth (e.g., $N=5$).
+    \item \textbf{Baseline Failure:} The bounded model terminates at a shallow depth (e.g., $\approx 3$) to prevent non-termination, causing ProVerif to output \textbf{``Secure'' (False Negative)}.
+    \item \textbf{Expected Outcome:} The Jaffar-based model, using \textbf{directed splitting}, will successfully explore all 5 layers and correctly output \textbf{``Attack Found.''}
+\end{itemize}
+
+\subsection{Performance \& Scalability: IKE Collision Benchmark}
+This test quantifies the efficiency gains from avoiding the state-space explosion observed in the IKE protocol.
+
+\begin{itemize}
+    \item \textbf{Setup:} Rerun the IKE protocol verification with the \textbf{Chosen-Prefix Collision} threat model (\texttt{col=1}).
+    \item \textbf{Hypothesis:} The bounded model's $O(3^d)$ complexity will be replaced by a significantly more efficient mechanism, as Jaffar’s algorithm only branches on necessary prefix matches.
+    \item \textbf{Success Metric:}
+    \begin{enumerate}
+        \item \textbf{Runtime:} Reduction from the baseline's prohibitive \textbf{180s+} runtime to \textbf{$<$ 60s}.
+        \item \textbf{Provability:} Transition from the inconclusive \textbf{``cannot be proved''} result to a definitive verdict, proving that the search space was fully explored.
+    \end{enumerate}
+\end{itemize}
+
+\subsection{Soundness Validation: False Positive Check}
+This ensures our A-unification logic does not introduce algebraic errors (e.g., unsound commutativity).
+
+\begin{itemize}
+    \item \textbf{Setup:} Run the SIGMA protocol in a ``No Collision'' configuration.
+    \item \textbf{Success Metric:} The security results must remain consistent with the standard ProVerif baseline, confirming that our axioms \textbf{do not} introduce unsound algebraic equivalences.
+\end{itemize}
+
+\section{Conclusion}
+
+Symbolic verification tools like ProVerif struggle to model the \textbf{associative structure} of real-world hash functions, relying instead on the \textbf{manual, bounded approximations} introduced by the ``Hash Gone Bad'' framework. While this workaround allows for some analysis, it creates a severe trade-off between analysis completeness (failing to find deep attacks) and computational efficiency (causing state-space explosion). Our project, ``Fast and Furi-hash,'' resolves this fundamental bottleneck by implementing \textbf{Jaffar’s Minimal and Complete Word Unification} algorithm directly into ProVerif's axiom system. This integration replaces arbitrary depth bounds and blind variable splitting with \textbf{directed splitting}, thus enabling the verification engine to reason about hash chains of arbitrary length while ensuring mathematical completeness.
+
+The integration of Jaffar’s logic delivers two primary advantages crucial for robust protocol analysis. First, it \textbf{restores computational tractability} by eliminating the exponential state-space explosion, which was responsible for verification times in protocols like IKE spiking to over three minutes under the collision threat model. Second, it resolves the problem of \textbf{incompleteness} by guaranteeing that the search space is fully explored, moving results from the inconclusive ``cannot be proved'' to definitive verdicts. By formalizing these properties with a certified algorithm, ``Fast and Furi-hash'' transforms ProVerif from a tool that \textit{approximates} hash weaknesses into one that \textit{mathematically solves} them, establishing a robust and scalable framework for automated, algebraically-aware protocol verification.
+
+% Can use something like this to put references on a page
+% by themselves when using endfloat and the captionsoff option.
+\ifCLASSOPTIONcaptionsoff
+  \newpage
+\fi
+
+
+
+% trigger a \newpage just before the given reference
+% number - used to balance the columns on the last page
+% adjust value as needed - may need to be readjusted if
+% the document is modified later
+%\IEEEtriggeratref{8}
+% The "triggered" command can be changed if desired:
+%\IEEEtriggercmd{\enlargethispage{-5in}}
+
+% references section
+
+% can use a bibliography generated by BibTeX as a .bbl file
+% BibTeX documentation can be easily obtained at:
+% http://mirror.ctan.org/biblio/bibtex/contrib/doc/
+% The IEEEtran BibTeX style support page is at:
+% http://www.michaelshell.org/tex/ieeetran/bibtex/
+%\bibliographystyle{IEEEtran}
+% argument is your BibTeX string definitions and bibliography database(s)
+%\bibliography{IEEEabrv,../bib/paper}
+%
+% <OR> manually copy in the resultant .bbl file
+% set second argument of \begin to the number of references
+% (used to reserve space for the reference number labels box)
+\begin{thebibliography}{9}
+
+\bibitem{cheval2023hash}
+V.~Cheval, C.~Cremers, A.~Dax, L.~Hirschi, C.~Jacomme, and S.~Kremer, ``Hash Gone Bad: Automated Discovery of Protocol Attacks that Exploit Hash Function Weaknesses,'' in \emph{Proc. 32nd USENIX Security Symposium}, 2023.
+
+\bibitem{ayala2024certified}
+M.~Ayala-Rincón, M.~Fernández, G.~F.~Silva, T.~Kutsia, and D.~Nantes-Sobrinho, ``Certified First-Order AC-Unification and Applications,'' \emph{Journal of Automated Reasoning}, vol. 68, no. 1, 2024.
+
+\bibitem{jaffar1990word}
+J.~Jaffar, ``Minimal and Complete Word Unification,'' \emph{IBM Thomas J. Watson Research Center}, Research Report RC 15663, 1990. [Note: Often published in Theoretical Computer Science, but citing the IBM report is standard for this foundational work.]
+
+\bibitem{plotkin1972equational}
+G.~D.~Plotkin, ``Building-in Equational Theories,'' \emph{Machine Intelligence}, vol. 7, pp. 19-28, 1972.
+
+\bibitem{orig_repo}
+V.~Cheval \emph{et al.}, ``Docker image and models for 'Hash Gone Bad','' GitHub Repository, 2023. [Online]. Available: \url{https://github.com/charlie-j/symbolic-hash-models}
+
+\bibitem{our_repo}
+A.~Natarajan and H.~Muhammed, ``Hash Gone Good,'' GitHub Repository, 2025. [Online]. Available: \url{https://github.com/arunnats/hash-gone-good}
+
+\bibitem{our_docker}
+A.~Natarajan, ``ProVerif with Computation Functions,'' Docker Hub Repository, 2025. [Online]. Available: \url{https://hub.docker.com/repository/docker/arunnats2004/proverif-compfun/general}
+
+\end{thebibliography}
+% biography section
+% 
+% If you have an EPS/PDF photo (graphicx package needed) extra braces are
+% needed around the contents of the optional argument to biography to prevent
+% the LaTeX parser from getting confused when it sees the complicated
+% \includegraphics command within an optional argument. (You could create
+% your own custom macro containing the \includegraphics command to make things
+% simpler here.)
+%\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{mshell}}]{Michael Shell}
+% or if you just want to reserve a space for a photo:
+
+% \begin{IEEEbiography}{Michael Shell}
+% Biography text here.
+% \end{IEEEbiography}
+
+
+\end{document}
+
+\section{Literature Survey}
+\label{sec:lit_survey}
+
+This research is built upon two key areas of prior work: the modeling of hash function weaknesses in symbolic verifiers and the theoretical development of AC-unification.
+
+\subsection{Modeling Hash Weaknesses in ProVerif}
+The primary foundation for this project is the \textit{Hash Gone Bad} (USENIX Security 2023) paper by Cheval et al. \cite{cheval2023hash}. This work introduces a novel methodology and tool extensions to model hash function weaknesses in ProVerif and Tamarin. Key contributions include:
+\begin{itemize}
+    \item A threat model lattice capturing different hash weaknesses.
+    \item Introduction of recursive computation functions in ProVerif (\texttt{computation\_function.ml}) enabling partial simulation of associative concatenation.
+    \item Case studies on 20+ protocols demonstrating rediscovery of known and discovery of new hash-collision attacks.
+\end{itemize}
+However, as we note in Section \ref{sec:gaps}, ProVerif’s current approach uses bounded associativity (recursion limited by transcript arity) to guarantee termination, at the cost of incomplete associative reasoning. This manual, bounded approximation is the central problem we aim to solve.
+
+\subsection{Certified AC-Unification}
+In parallel, the challenge of reasoning about terms with associative properties has been a long-standing problem in automated reasoning. A significant recent breakthrough is the work by Ayala-Rincón et al. \cite{ayala2024certified}, which provides a \textbf{certified first-order AC-unification algorithm}. This paper presents a sound and complete unification algorithm for Associative-Commutative (AC) theories and provides a formal, machine-checked proof of its correctness. This algorithm provides the practical, verified "solver" that was missing, making it a candidate to replace the bounded approximations used in \cite{cheval2023hash}.
+
+\section{Reproduction and Empirical Work}
+Attempting to reproduce the original experiments \cite{cheval2023hash} involved:
+\begin{itemize}
+    \item Running the original \texttt{proverif-compfun} Docker container \cite{orig_repo}, which was tightly coupled to Tamarin.
+    \item Creating a new Dockerized environment to decouple ProVerif extensions, enabling independent testing.
+    \item Using a custom script to perform a diff of original ProVerif 2.04 and the modified source to highlight key changes.
+\end{itemize}
+Through this setup we validated that the ProVerif extension and associated models run correctly in isolation. The repositories and tools are available here:
+\begin{itemize}
+    \item Project repo: \cite{our_repo}
+    \item Docker image: \cite{our_docker}
+\end{itemize}
+
+\section{Research Gaps}
+\label{sec:gaps}
+
+The ``Hash Gone Bad'' framework \cite{cheval2023hash} highlights two significant research gaps. First, as acknowledged by its authors \cite{cheval2023hash}, the manual, recursive \texttt{compfun} models are a complex and bounded approximation of true associativity. Second, full associative unification remains unimplemented in ProVerif due to its theoretical and practical complexity.
+
+The base paper \cite{cheval2023hash} explicitly identifies automating the \emph{generation} of their recursive models as ``future work''. However, this would only automate the creation of an \emph{approximation}.
+
+Our project targets the more fundamental gap: \textbf{the lack of a true associative solver}. We propose that by integrating the certified AC-unification algorithm from Ayala-Rincón et al. \cite{ayala2024certified}, we can \emph{replace} the bounded, recursive workaround entirely. This directly addresses the core limitation noted in the base paper \cite{cheval2023hash}, moving beyond automating approximations to enabling full associative reasoning, which would significantly extend ProVerif’s expressivity and reduce manual modeling effort.
+
+\section{Proposed Solution and Evaluation Plan
+}
+
+\subsection{Proposed Solution}
+\begin{itemize}
+    \item Integrate the certified AC-unification algorithm from \textit{Certified First-Order AC-Unification and Applications} \cite{ayala2024certified} into ProVerif’s computation function engine.
+    \item Replace bounded associativity: Substitute the current recursive, bounded approach with a unification-based solver for associative terms.
+    \item Enable full associative reasoning: Allow ProVerif to check term equality modulo associativity, improving completeness and automation.
+    \item Maintain termination: Apply heuristics or bounds as needed to ensure the tool remains practical for real-world protocols.
+    \item Future Automation: The base paper introduced recursive predicates to approximate associative reasoning, but left full automation as future work. By integrating AC-unification, we aim to automate this process, reducing manual modeling and making ProVerif more expressive and user-friendly.
+\end{itemize}
+
+\subsection{Research \& Development Plan}
+\begin{itemize}
+    \item Prototype integration of the AC-unification algorithm in the OCaml codebase (\texttt{computation\_function.ml}).
+    \item Develop heuristics or bounds to ensure termination and scalability.
+    \item Extend Sigma and Signal protocol models \cite{cheval2023hash} to leverage full associative unification.
+\end{itemize}
+
+\subsection{Evaluation Plan}
+\begin{itemize}
+    \item Correctness: Verify that the new model rediscovers existing known hash-collision attacks.
+    \item Performance: Measure verification time, termination behavior, and memory usage compared to the bounded approach.
+    \item Ablation Study: Vary unification bounds and heuristics to assess the trade-off between completeness and scalability.
+    \item Robustness: Test on a set of protocols with complex concatenations.
+\end{itemize}
+
+\section{Expected Outcomes}
+\begin{itemize}
+    \item A generalized ProVerif extension supporting sound associative unification.
+    \item Demonstrated improvements in modeling accuracy and attack detection.
+    \item Deeper understanding of trade-offs in symbolic reasoning with algebraic theories.
+    \item Contribution of code, models, and documented methodology to open-source repositories \cite{our_repo, our_docker}.
+\end{itemize}
+
+\section{Conclusion}
+By addressing the limitations of bounded associativity \cite{cheval2023hash} and moving towards full associative unification, this project aims to significantly enhance the expressivity and automation of symbolic protocol verification in ProVerif. The integration of a certified AC-unification algorithm \cite{ayala2024certified} will enable more accurate modeling of real-world hash constructions, reduce manual effort, and potentially uncover new classes of protocol attacks. This work lays the foundation for future research in automated, algebraically-aware protocol verification.
+
+
+
+% use section* for acknowledgment
+\section*{Acknowledgment}
+
+We would like to express our sincere gratitude to our project advisor, Dr. Vinod Pathari, for his invaluable guidance, continuous support, and insightful feedback throughout the course of this research. His expertise was instrumental in shaping the direction of this project.
+
+We also wish to thank the authors of "Hash Gone Bad," \cite{cheval2023hash} whose foundational work provided the primary inspiration and basis for our research. Finally, we are grateful to the Department of Computer Science \& Engineering at NIT Calicut for providing us with the resources and academic environment necessary to complete this work.
+
+
+% Can use something like this to put references on a page
+% by themselves when using endfloat and the captionsoff option.
+\ifCLASSOPTIONcaptionsoff
+  \newpage
+\fi
+
+
+
+% trigger a \newpage just before the given reference
+% number - used to balance the columns on the last page
+% adjust value as needed - may need to be readjusted if
+% the document is modified later
+%\IEEEtriggeratref{8}
+% The "triggered" command can be changed if desired:
+%\IEEEtriggercmd{\enlargethispage{-5in}}
+
+% references section
+
+% can use a bibliography generated by BibTeX as a .bbl file
+% BibTeX documentation can be easily obtained at:
+% http://mirror.ctan.org/biblio/bibtex/contrib/doc/
+% The IEEEtran BibTeX style support page is at:
+% http://www.michaelshell.org/tex/ieeetran/bibtex/
+%\bibliographystyle{IEEEtran}
+% argument is your BibTeX string definitions and bibliography database(s)
+%\bibliography{IEEEabrv,../bib/paper}
+%
+% <OR> manually copy in the resultant .bbl file
+% set second argument of \begin to the number of references
+% (used to reserve space for the reference number labels box)
+\begin{thebibliography}{9}
+
+\bibitem{cheval2023hash}
+V.~Cheval, C.~Cremers, A.~Dax, L.~Hirschi, C.~Jacomme, and S.~Kremer, ``Hash Gone Bad: Automated Discovery of Protocol Attacks that Exploit Hash Function Weaknesses,'' in \emph{Proc. 32nd USENIX Security Symposium}, 2023.
+
+\bibitem{ayala2024certified}
+M.~Ayala-Rincón, M.~Fernández, G.~F.~Silva, T.~Kutsia, and D.~Nantes-Sobrinho, ``Certified First-Order AC-Unification and Applications,'' \emph{Journal of Automated Reasoning}, vol. 68, no. 1, 2024.
+
+\bibitem{orig_repo}
+V.~Cheval \emph{et al.}, ``Docker image and models for 'Hash Gone Bad','' GitHub Repository, 2023. [Online]. Available: \url{https://github.com/charlie-j/symbolic-hash-models}
+
+\bibitem{our_repo}
+A.~Natarajan and H.~Muhammed, ``Hash Gone Good,'' GitHub Repository, 2025. [Online]. Available: \url{https://github.com/arunnats/hash-gone-good}
+
+\bibitem{our_docker}
+A.~Natarajan, ``ProVerif with Computation Functions,'' Docker Hub Repository, 2025. [Online]. Available: \url{https://hub.docker.com/repository/docker/arunnats2004/proverif-compfun/general}
+
+\end{thebibliography}
+
+% biography section
+% 
+% If you have an EPS/PDF photo (graphicx package needed) extra braces are
+% needed around the contents of the optional argument to biography to prevent
+% the LaTeX parser from getting confused when it sees the complicated
+% \includegraphics command within an optional argument. (You could create
+% your own custom macro containing the \includegraphics command to make things
+% simpler here.)
+%\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{mshell}}]{Michael Shell}
+% or if you just want to reserve a space for a photo:
+
+% \begin{IEEEbiography}{Michael Shell}
+% Biography text here.
+% \end{IEEEbiography}
+
+% % if you will not have a photo at all:
+% \begin{IEEEbiographynophoto}{John Doe}
+% Biography text here.
+% \end{IEEEbiographynophoto}
+
+% % insert where needed to balance the two columns on the last page with
+% % biographies
+% %\newpage
+
+% \begin{IEEEbiographynophoto}{Jane Doe}
+% Biography text here.
+% \end{IEEEbiographynophoto}
+
+% You can push biographies down or up by placing
+% a \vfill before or after them. The appropriate
+% use of \vfill depends on what kind of text is
+% on the last page and whether or not the columns
+% are being equalized.
+
+%\vfill
+
+% Can be used to pull up biographies so that the bottom of the last one
+% is flush with the other column.
+%\enlargethispage{-5in}
+
+
+
+% that's all folks
+\end{document}

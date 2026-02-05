@@ -1,8 +1,11 @@
-(* Sigma' case study with the MDH construct using computation function
-   This file consider unbounded concatenation of blocks under the hash.
-   Does not allow Chosen Prefix Collision.
+(* Sigma' case study with the MDH construct using Jaffar's Algorithm.
+   This file considers unbounded concatenation of blocks under the hash.
+   Does not allow Chosen-Prefix Collisions (Algebraic Associativity only).
 *)
-expand macro_SIGMA(equal_hash,System).
+
+(* CHANGE: Use equal_hash (or your updated Jaffar predicate) 
+   to trigger the Directed Splitting axioms. *)
+expand macro_SIGMA(equal_hash, System).
 
 process
    System

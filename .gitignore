@@ -49,3 +49,8 @@ out/
 /diff-check/proverif2.03
 proverif_substantive_changes.patch
 proverif_full_changes.patch
+
+# Build artifacts and temporary files
+.bash_history
+Docker/res/
+instructions.txt

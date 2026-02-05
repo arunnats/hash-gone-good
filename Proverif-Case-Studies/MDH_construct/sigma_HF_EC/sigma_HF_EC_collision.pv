@@ -1,16 +1,24 @@
-(* Sigma' case study with the MDH construct using computation function
-   This file consider unbounded concatenation of blocks under the hash.
-   Allow Chosen Prefix Collision.
+(* Sigma' case study with the MDH construct using Jaffar's Algorithm.
+   This file considers unbounded concatenation of blocks under the hash
+   and allows for Chosen Prefix Collisions via the new axiomatic solver.
 *)
 
-expand macro_SIGMA(equal_hash_col,System).
+(* Use the collision-aware predicate defined in your new library *)
+expand macro_SIGMA(equal_hash_col, System).
 
 process
   System |
-  ! in(c,p1:bitstring);
-    in(c,p2:bitstring);
-    in(c,h1:bitstring);
-    in(c,h2:bitstring);
-    if eq_hash(buildH(p1),h1) && eq_hash(buildH(p2),h2) then
-    out(c,CPcol1(h1,h2));
-    out(c,CPcol2(h1,h2))
+  (* Attacker process to exploit Chosen-Prefix Collisions *)
+  ! in(c, p1: bitstring);
+    in(c, p2: bitstring);
+    in(c, h1: bitstring);
+    in(c, h2: bitstring);
+  
+    (* CHANGE: Use eq_hash_col to allow the solver to reason about 
+       associative prefixes during collision generation *)
+    if eq_hash_col(buildH(p1), h1) && eq_hash_col(buildH(p2), h2) then
+    
+    (* The solver will now use Case 4 of your Jaffar Axiom 
+       to unify these blocks during the protocol trace *)
+    out(c, CPcol1(h1, h2));
+    out(c, CPcol2(h1, h2))

@@ -1,3 +1,6 @@
+fun CPcol1(bitstring,bitstring):bitstring.
+fun CPcol2(bitstring,bitstring):bitstring.
+
 fun isCol(bitstring):bool
 reduc forall L1:bitstring, L2:bitstring;
  isCol(CPcol1(L1,L2)) = true

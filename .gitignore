@@ -1,3 +1,21 @@
+# Ignore Docker resource directory (large generated files)
+Docker/res/
+
+# Ignore ProVerif log files produced during analysis
+Proverif-Case-Studies/**/LOG*.txt
+
+# User and local files
+.bash_history
+instructions.txt
+
+# Common editor/temp files
+*~
+.cache/
+.vscode/
+*.swp
+
+# Build artifacts
+Docker/res/build.zip
 .hsenv
 hsenv.log
 dist

@@ -72,6 +72,27 @@ axiom x,h1',h2',h1,h2:bitstring;
   [forcedRemove,fullSat]
 .
 
+(** JAFFAR'S DIRECTED WORD UNIFICATION AXIOM **)
+(* After normalization, guide variable instantiation with directed splitting *)
+axiom x1, x2, h1, h2, z, c1, c2, c3, c4: bitstring;
+  eq_hash_col(H(x1, h1), H(x2, h2))
+  && is_var(x1) && is_var(x2) 
+  && instantiate_allowed(x1, H(x2, h2))
+  ==>
+  (* Case 1: Match (Identity) *)
+  (x1 = x2 && eq_hash_col(h1, h2)) ||
+  
+  (* Case 2: Left Prefix (x1 is a prefix of x2) *)
+  (x2 = (x1, z) && eq_hash_col(h1, H(z, h2))) ||
+  
+  (* Case 3: Right Prefix (x2 is a prefix of x1) *)
+  (x1 = (x2, z) && eq_hash_col(H(z, h1), h2)) ||
+  
+  (* Case 4: Chosen-Prefix Collision *)
+  (x1 = CPcol1(c1, c2) && x2 = CPcol2(c3, c4) && 
+   eq_hash(c1, c3) && eq_hash(c2, c4))
+[forcedRemove].
+
 (** Axiom that detect when the equality predicate is false *)
 
 (*
@@ -172,13 +193,14 @@ axiom u1,h1,h1',h1'',u2,h2,h2',h2'':bitstring;
     (u2 = CPcol1(h1'',h2'') && eq_hash(h1,h1') && eq_hash(h1',h1'') && eq_hash(h2,h2') && eq_hash(h2',h2''))
   [forcedRemove].
 
+(** EXPERIMENT: Original variable splitting axiom commented out to test Jaffar's axiom alone **)
 (*
   Case where we can do a case analysis without looping (i.e. x1 = u1 || x1 = (x2,x3)):
     - H( h1 || x1 ) = H (h2 || uk || ... || u1)
       with x1 occuring in uk and u1 ... uk-1 not variables
     - H( x1 || h1 ) = H (u1 || ... || uk)
       with u1 ... uk not variables
-*)
+
 axiom x1,x1',x1'',x2,h1,h2,h3,h4,h3',h4':bitstring;
   eq_hash_col(H(x1,h1),H(x2,h2)) && is_var(x1) && instantiate_allowed(x1,H(x2,h2)) ==> eq_hash_col(h1,h2) && (
     x1 = x2 ||
@@ -195,6 +217,7 @@ axiom x1,x1',x1'',x2,h1,h2,h3,h4,h3',h4':bitstring;
     (x1 = (x1',x1'') && eq_hash_col(H(x2,h2),H(x1,h1)))
   [forcedRemove]
 .
+*)
 
 (* Axiom that not not sound w.r.t. equational theory but should be sound for trace property *)
 

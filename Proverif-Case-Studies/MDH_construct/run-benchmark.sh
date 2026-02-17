@@ -15,9 +15,9 @@ time make ike_s=1 col=1 > LOG_ikeS_col.txt
 grep RESULT LOG_ikeS_col.txt
 
 # ike protocol
-#echo -e "\nIKE with assoc, with col: running..."
-#time make ike=1 col=1 > LOG_ike_col.txt
-#grep RESULT LOG_ike_col.txt
+echo -e "\nIKE with assoc, with col: running..."
+time make ike=1 col=1 > LOG_ike_col.txt
+grep RESULT LOG_ike_col.txt
 
 # List generated log files
 echo -e "\nGenerated log files:"
